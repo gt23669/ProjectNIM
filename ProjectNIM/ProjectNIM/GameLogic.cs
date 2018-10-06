@@ -34,14 +34,37 @@ namespace ProjectNIM
 
         public bool IsGameOver()
         {
-            //Furman
-            throw new NotImplementedException();
+            bool gameOver = true;
+            Piles.ForEach(pile => {
+                if (pile != 0)
+                {
+                    gameOver = false;
+                }
+            });
+
+            return gameOver;
         }
 
         public void InitializePiles(int difficulty)
         {
-            //Furman
-            throw new NotImplementedException();
+            switch (difficulty)
+            {
+                case 0:
+                    Piles.Add(3);
+                    Piles.Add(3);
+                    break;
+                case 1:
+                    Piles.Add(2);
+                    Piles.Add(5);
+                    Piles.Add(7);
+                    break;
+                case 2:
+                    Piles.Add(2);
+                    Piles.Add(3);
+                    Piles.Add(8);
+                    Piles.Add(9);
+                    break;
+            }
         }
 
         private void SwitchActivePlayer()

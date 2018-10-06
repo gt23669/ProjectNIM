@@ -29,7 +29,7 @@ namespace ProjectNIM
         public void TakeFromPile(int pile, int pieces)
         {
             //Steven
-            throw new NotImplementedException();
+            Piles[pile] -= pieces;
         }
 
         public bool IsGameOver()
@@ -47,7 +47,14 @@ namespace ProjectNIM
         private void SwitchActivePlayer()
         {
             //Steven
-            throw new NotImplementedException();
+            if(ActivePlayer == Players[0])
+            {
+                ActivePlayer = Players[1];
+            }
+            else
+            {
+                ActivePlayer = Players[0];
+            }
         }
 
 

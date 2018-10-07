@@ -10,7 +10,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ProjectNIM
@@ -23,6 +22,28 @@ namespace ProjectNIM
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btn_StartClicked(object sender, RoutedEventArgs e)
+        {
+            StartWindow open = new StartWindow();
+            open.Show();
+            Close();
+        }
+
+        private void btn_HelpClicked(object sender, RoutedEventArgs e)
+        {
+            HelpWindow open = new HelpWindow();
+            open.Show();
+            Close();
+        }
+
+
+        private void btn_QuitClicked(object sender, RoutedEventArgs e)
+        {
+            base.OnClosed(e);
+
+            Application.Current.Shutdown();
         }
     }
 }

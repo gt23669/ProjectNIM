@@ -1,0 +1,22 @@
+﻿<Window x:Class="ProjectNIM.StartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectNIM"
+        mc:Ignorable="d"
+        Title="StartWindow" Height="450" Width="800"
+         WindowStartupLocation="CenterScreen">
+    <Grid>
+        <RadioButton GroupName="Difficulty" FontSize="20" Content="Easy" HorizontalAlignment="Left" Margin="171,127,0,0" VerticalAlignment="Top" Width="140" Height = "25"/>
+        <RadioButton GroupName="Difficulty" FontSize="20" Content="Medium" HorizontalAlignment="Left" Margin="171,168,0,0" VerticalAlignment="Top" Width="140" Height = "25"/>
+        <RadioButton GroupName="Difficulty" FontSize="20" Content="Hard" HorizontalAlignment="Left" Margin="171,210,0,0" VerticalAlignment="Top" Width="140" Height = "25"/>
+        <RadioButton GroupName="Player" FontSize="20" Content="One" HorizontalAlignment="Left" Margin="469,127,0,0" VerticalAlignment="Top" Width="140" Height = "25"/>
+        <RadioButton GroupName="Player" FontSize="20" Content="Two" HorizontalAlignment="Left" Margin="469,168,0,0" VerticalAlignment="Top" Width="140" Height = "25"/>
+        <Label Content="Difficulty" HorizontalAlignment="Left" Margin="171,69,0,0" VerticalAlignment="Top" Width="140" FontSize="25" Height="40"/>
+        <Label Content="Players" HorizontalAlignment="Left" Margin="469,69,0,0" VerticalAlignment="Top" Width="140" FontSize="25" Height="40"/>
+        <Button Content="Continue" HorizontalAlignment="Left" Margin="290,300,0,0" VerticalAlignment="Top" Width="177" Height="30" Click="btn_FirstContClicked"/>
+        <Button Content="Main Menu" HorizontalAlignment="Left" Margin="290,337,0,0" VerticalAlignment="Top" Width="177" Height="30" Click="btn_MainMenuClicked"/>
+
+    </Grid>
+</Window>

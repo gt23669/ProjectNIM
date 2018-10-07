@@ -17,13 +17,18 @@ namespace ProjectNIM
         public int RobotPileChoice()
         {
             //Daniel
-            throw new NotImplementedException();
+            Random rnd = new Random();
+            int pileChoice = rnd.Next(0, Piles.Count + 1);
+            return pileChoice;
         }
 
-        public int RobotPieceChoice()
+        public int RobotPieceChoice(int pile)
         {
             //Daniel
-            throw new NotImplementedException();
+            //Added the param to this method. Add to documentation that this param did not exist before.
+            Random rnd = new Random();
+            int piecies = rnd.Next(1, Piles[pile] + 1);
+            return piecies;
         }
 
         public void TakeFromPile(int pile, int pieces)
@@ -35,7 +40,8 @@ namespace ProjectNIM
         public bool IsGameOver()
         {
             bool gameOver = true;
-            Piles.ForEach(pile => {
+            Piles.ForEach(pile =>
+            {
                 if (pile != 0)
                 {
                     gameOver = false;
@@ -70,7 +76,7 @@ namespace ProjectNIM
         private void SwitchActivePlayer()
         {
             //Steven
-            if(ActivePlayer == Players[0])
+            if (ActivePlayer == Players[0])
             {
                 ActivePlayer = Players[1];
             }

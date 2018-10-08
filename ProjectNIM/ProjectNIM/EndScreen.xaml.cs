@@ -22,24 +22,43 @@ namespace ProjectNIM
     {
         public EndScreen()
         {
-
+            //Image image = new Image();
             //imgScreen.Source.Equals();
             InitializeComponent();
         }
 
-        private Image getImage(string path)
+        private string getImage(string path)
         {
-            return null;
+            string file = null;
+            if (!string.IsNullOrEmpty(path))
+            {
+                var extensions = new string[] { ".png", ".jpg", ".gif" };
+                try
+                {
+                    var di = new DirectoryInfo(path);
+                    var rgFiles = di.GetFiles("*.*").Where(f => extensions.Contains(f.Extension.ToLower()));
+                    Random R = new Random();
+                    file = rgFiles.ElementAt(R.Next(0, rgFiles.Count())).FullName;
+                }
+                // probably should only catch specific exceptions
+                // throwable by the above methods.
+                catch { }
+            }
+            return file;
         }
 
         private void btnNewGame_Click(object sender, RoutedEventArgs e)
         {
-
+            StartWindow open = new StartWindow();
+            open.Show();
+            Close();
         }
 
         private void btnMainMenu_Click(object sender, RoutedEventArgs e)
         {
-
+            MainWindow open = new MainWindow();
+            open.Show();
+            Close();
         }
     }
 }

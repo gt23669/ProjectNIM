@@ -45,6 +45,7 @@ namespace ProjectNIM
             startWindow.Close();
             Game open = new Game(gameLogic, hasBot);
             open.Show();
+            Close();
         }
     }
 }

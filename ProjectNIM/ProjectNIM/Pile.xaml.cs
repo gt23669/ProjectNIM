@@ -36,5 +36,14 @@ namespace ProjectNIM
         {
             rbtnChoice.IsChecked = true;
         }
+
+        public bool IsChecked()
+        {
+            if (rbtnChoice.IsChecked == true)
+            {
+                return true;
+            }
+            else return false;
+        }
     }
 }

@@ -21,6 +21,7 @@ namespace ProjectNIM
     {
         public Game()
         {
+            foreach()
             InitializeComponent();
         }
     }

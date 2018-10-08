@@ -25,6 +25,12 @@ namespace ProjectNIM
         }
         private void btn_FirstContClicked(object sender, RoutedEventArgs e)
         {
+            GameLogic gLogic = new GameLogic();
+            List<int> piles = new List<int>();
+            if(difEasy.IsChecked == true)
+            {
+                
+            }
             NameWindow open = new NameWindow(this);
             open.Show();
         }
@@ -34,6 +40,16 @@ namespace ProjectNIM
             MainWindow main = new MainWindow();
             main.Show();
             Close();
+        }
+
+        private void difEasy_Checked(object sender, RoutedEventArgs e)
+        {
+            RadioButton check = (RadioButton)sender;
+            string currentGroup = check.GroupName;
+            if(currentGroup.Equals("Difficulty"))
+            {
+
+            }
         }
     }
 }

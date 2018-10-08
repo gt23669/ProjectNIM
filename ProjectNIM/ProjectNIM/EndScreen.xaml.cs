@@ -27,10 +27,10 @@ namespace ProjectNIM
             InitializeComponent();
         }
 
-        //private Image getImage(string path)
-        //{
-            
-        //}
+        private Image getImage(string path)
+        {
+
+        }
 
         private void btnNewGame_Click(object sender, RoutedEventArgs e)
         {

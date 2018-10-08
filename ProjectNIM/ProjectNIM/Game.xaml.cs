@@ -47,7 +47,7 @@ namespace ProjectNIM
                 pile.lblItems.BorderBrush = Brushes.Black;
             }
             changeColor.lblItems.BorderBrush = Brushes.Red;
-
+            changeColor.rbtnChoice.IsChecked = true;
         }
 
 
@@ -109,8 +109,6 @@ namespace ProjectNIM
                     temp.MouseLeftButtonDown += fillCbx;
                     ugrdGame.Children.Add(temp);
                 }
-
-
             }
         }
 

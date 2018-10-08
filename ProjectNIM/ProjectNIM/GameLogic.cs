@@ -20,12 +20,12 @@ namespace ProjectNIM
             Random rnd = new Random();
 
             bool exit = false;
-            int pileChoice = rnd.Next(0, Piles.Count + 1);
+            int pileChoice = rnd.Next(0, Piles.Count);
             do
             {
                 if (Piles[pileChoice] == 0)
                 {
-                    pileChoice = rnd.Next(0, Piles.Count + 1);
+                    pileChoice = rnd.Next(0, Piles.Count);
 
                 }
                 else

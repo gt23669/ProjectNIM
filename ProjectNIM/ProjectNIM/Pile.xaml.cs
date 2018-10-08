@@ -22,6 +22,7 @@ namespace ProjectNIM
     {
         public Pile(int items)
         {
+            InitializeComponent();
             string toFill = "";
             for (int i = 0; i < items; i++)
             {
@@ -29,6 +30,11 @@ namespace ProjectNIM
             }
             lblItems.Content = toFill;
             InitializeComponent();
+        }
+
+        private void UserControl_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            rbtnChoice.IsChecked = true;
         }
     }
 }

@@ -21,19 +21,29 @@ namespace ProjectNIM
     public partial class NameWindow : Window
     {
         private StartWindow startWindow;
-
-        public NameWindow(StartWindow startWindow)
+        GameLogic gameLogic;
+        bool hasBot;
+        public NameWindow(StartWindow startWindow, GameLogic gLogic, bool hasBot)
         {
             InitializeComponent();
+            this.hasBot = hasBot;
             this.startWindow = startWindow;
+            if(hasBot)
+            {
+                tbxp2Name.Text = "Robot Overlord";
+            }
+            tbxp2Name.Visibility = (hasBot)? Visibility.Hidden : Visibility.Visible ;
+            gameLogic = gLogic;
         }
 
         private void btn_SeconContClicked(object sender, RoutedEventArgs e)
         {
-
+            gameLogic.Players[0] = tbxp1Name.Text;
+            gameLogic.Players[1] = tbxp2Name.Text;
+            gameLogic.ActivePlayer = gameLogic.Players[0];
             //Game stuff goes here
             startWindow.Close();
-            Game open = new Game();
+            Game open = new Game(gameLogic, hasBot);
             open.Show();
         }
     }

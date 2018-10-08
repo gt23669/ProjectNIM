@@ -9,7 +9,7 @@
          WindowStartupLocation="CenterScreen">
 	<Viewbox>
 		<Grid>
-			<UniformGrid Name="ugrdGame" Rows="1" Height="250" Width="800" Margin="0, 0, 0, 100"></UniformGrid>
+			<UniformGrid Name="ugrdGame" Rows="1" Height="250" Width="800" Margin="0, 0, 0, 140"></UniformGrid>
 			<Label Name="lblGameInfo" Content="Label" HorizontalAlignment="Left" Height="43" Margin="10,370,0,0" VerticalAlignment="Top" Width="775" HorizontalContentAlignment="Center"/>
 			<ComboBox Name="cbxChoice" Height="25" Width="100" Margin="342,285,342.8,102.8"></ComboBox>
 			<Button Name="btnSubmit" Height="50" Width="100" Content="Submit" Margin="342,315,342.8,47.8"/>

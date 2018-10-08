@@ -19,10 +19,13 @@ namespace ProjectNIM
     /// </summary>
     public partial class Game : Window
     {
-        public Game()
+        public Game(GameLogic gLogic, bool hasBot)
         {
-            foreach()
             InitializeComponent();
+            foreach(var pile in gLogic.Piles)
+            {
+                ugrdGame.Children.Add(new Pile(pile));
+            }
         }
     }
 }

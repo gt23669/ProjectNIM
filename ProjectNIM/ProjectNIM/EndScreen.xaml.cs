@@ -29,7 +29,7 @@ namespace ProjectNIM
 
         private Image getImage(string path)
         {
-
+            return null;
         }
 
         private void btnNewGame_Click(object sender, RoutedEventArgs e)

@@ -26,12 +26,23 @@ namespace ProjectNIM
         private void btn_FirstContClicked(object sender, RoutedEventArgs e)
         {
             GameLogic gLogic = new GameLogic();
-            List<int> piles = new List<int>();
-            if(difEasy.IsChecked == true)
+            int diff = 0;
+            if (difEasy.IsChecked == true)
             {
-                
+                diff = 0;
             }
-            NameWindow open = new NameWindow(this);
+            else if (difMed.IsChecked == true)
+            {
+                diff = 1;
+            }
+            else if (difHard.IsChecked == true)
+            {
+                diff = 2;
+            }
+
+            gLogic.InitializePiles(diff);
+
+            NameWindow open = new NameWindow(this, gLogic, (bool)plOne.IsChecked);
             open.Show();
         }
 
@@ -42,14 +53,35 @@ namespace ProjectNIM
             Close();
         }
 
-        private void difEasy_Checked(object sender, RoutedEventArgs e)
+        private void btn_Checked(object sender, RoutedEventArgs e)
         {
             RadioButton check = (RadioButton)sender;
             string currentGroup = check.GroupName;
+            bool contEnable = false;
             if(currentGroup.Equals("Difficulty"))
             {
-
+                List<RadioButton> players = new List<RadioButton>();
+                players.Add(plOne);
+                players.Add(plTwo);
+                foreach (var button in players)
+                {
+                    if (button.IsChecked == true)
+                        contEnable = true;
+                }
             }
+            else if(currentGroup.Equals("Player"))
+            {
+                List<RadioButton> diffs = new List<RadioButton>();
+                diffs.Add(difEasy);
+                diffs.Add(difMed);
+                diffs.Add(difHard);
+                foreach (var button in diffs)
+                {
+                    if (button.IsChecked == true)
+                        contEnable = true;
+                }
+            }
+            btnContinue.IsEnabled = contEnable;
         }
     }
 }

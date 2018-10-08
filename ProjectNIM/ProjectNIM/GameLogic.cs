@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ProjectNIM
 {
-    class GameLogic
+    public class GameLogic
     {
         public List<int> Piles { get; set; }
 
-        public string[] Players { get; set; }
+        public string[] Players { get; set; } = new string[2];
 
         public string ActivePlayer { get; set; }
 
@@ -53,6 +53,7 @@ namespace ProjectNIM
 
         public void InitializePiles(int difficulty)
         {
+            Piles = new List<int>();
             switch (difficulty)
             {
                 case 0:

@@ -19,12 +19,14 @@ namespace ProjectNIM
     /// </summary>
     public partial class Game : Window
     {
+        public GameLogic logic;
         public Game(GameLogic gLogic, bool hasBot)
         {
+            this.logic = gLogic;
             InitializeComponent();
             foreach (var pile in gLogic.Piles)
             {
-                lblGameInfo.Content = $"{gLogic.Players[0].ToString()}'s turn!";
+                lblGameInfo.Content = $"{gLogic.ActivePlayer}'s turn!";
                 Pile temp = new Pile(pile);
                 temp.MouseLeftButtonDown += fillCbx;
                 ugrdGame.Children.Add(temp);
@@ -58,8 +60,19 @@ namespace ProjectNIM
             {
                 if(piles[i].IsChecked() == true)
                 {
-                    
+                    int.TryParse(cbxChoice.SelectedItem.ToString(), out int itemsToRemove);
+                    logic.TakeFromPile(i, itemsToRemove);
                 }
+            }
+            cbxChoice.Items.Clear();
+            logic.SwitchActivePlayer();
+            ugrdGame.Children.Clear();
+            foreach (var pile in logic.Piles)
+            {
+                lblGameInfo.Content = $"{logic.ActivePlayer}'s turn!";
+                Pile temp = new Pile(pile);
+                temp.MouseLeftButtonDown += fillCbx;
+                ugrdGame.Children.Add(temp);
             }
         }
     }

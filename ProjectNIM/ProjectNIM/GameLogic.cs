@@ -74,7 +74,7 @@ namespace ProjectNIM
             }
         }
 
-        private void SwitchActivePlayer()
+        public void SwitchActivePlayer()
         {
             //Steven
             if (ActivePlayer == Players[0])

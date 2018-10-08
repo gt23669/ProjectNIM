@@ -53,6 +53,7 @@ namespace ProjectNIM
 
         private void fillCbx(object sender, MouseButtonEventArgs e)
         {
+
             cbxChoice.Items.Clear();
             Pile temp = (Pile)sender;
             string data = (string)temp.lblItems.Content;
@@ -87,6 +88,7 @@ namespace ProjectNIM
             {
                 Pile temp = new Pile(pile);
                 temp.MouseLeftButtonDown += fillCbx;
+                temp.MouseLeftButtonDown += SelectColor;
                 ugrdGame.Children.Add(temp);
             }
 
@@ -107,6 +109,7 @@ namespace ProjectNIM
                 {
                     Pile temp = new Pile(pile1);
                     temp.MouseLeftButtonDown += fillCbx;
+                    temp.MouseLeftButtonDown += SelectColor;
                     ugrdGame.Children.Add(temp);
                 }
             }

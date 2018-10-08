@@ -113,6 +113,13 @@ namespace ProjectNIM
                     ugrdGame.Children.Add(temp);
                 }
             }
+            if (logic.IsGameOver())
+            {
+                EndScreen end = new EndScreen();
+                end.Show();
+                Close();
+            }
+            
         }
 
         private void cbxChoice_SelectionChanged(object sender, SelectionChangedEventArgs e)

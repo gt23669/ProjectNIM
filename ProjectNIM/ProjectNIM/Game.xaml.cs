@@ -119,7 +119,8 @@ namespace ProjectNIM
                 end.Show();
                 Close();
             }
-            
+
+            btnSubmit.IsEnabled = false;
         }
 
         private void cbxChoice_SelectionChanged(object sender, SelectionChangedEventArgs e)

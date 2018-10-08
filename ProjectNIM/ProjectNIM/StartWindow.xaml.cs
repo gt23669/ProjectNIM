@@ -25,7 +25,8 @@ namespace ProjectNIM
         }
         private void btn_FirstContClicked(object sender, RoutedEventArgs e)
         {
-
+            NameWindow open = new NameWindow(this);
+            open.Show();
         }
 
         private void btn_MainMenuClicked(object sender, RoutedEventArgs e)

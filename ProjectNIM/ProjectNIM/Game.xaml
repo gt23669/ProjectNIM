@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectNIM"
         mc:Ignorable="d"
-        Title="Game" Height="450" Width="800">
+        Title="Game" Height="450" Width="800"
+         WindowStartupLocation="CenterScreen">
 	<Viewbox>
 		<Grid>
 			<local:Pile Height="250" Margin="-231,10,230.8,152.8"></local:Pile>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,9 +20,22 @@ namespace ProjectNIM
     /// </summary>
     public partial class NameWindow : Window
     {
-        public NameWindow()
+        private StartWindow startWindow;
+
+        public NameWindow(StartWindow startWindow)
         {
             InitializeComponent();
+            this.startWindow = startWindow;
+        }
+
+        private void btn_SeconContClicked(object sender, RoutedEventArgs e)
+        {
+
+            //Game stuff goes here
+            Close();
+            startWindow.Close();
+            Game open = new Game();
+            open.Show();
         }
     }
 }

@@ -32,11 +32,6 @@ namespace ProjectNIM
             InitializeComponent();
         }
 
-        private void UserControl_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            rbtnChoice.IsChecked = true;
-        }
-
         public bool IsChecked()
         {
             if (rbtnChoice.IsChecked == true)

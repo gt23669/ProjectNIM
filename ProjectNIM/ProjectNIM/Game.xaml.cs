@@ -19,6 +19,7 @@ namespace ProjectNIM
     /// </summary>
     public partial class Game : Window
     {
+        private List<Pile> Piles = new List<Pile>();
         public GameLogic logic;
         public Game(GameLogic gLogic, bool hasBot)
         {
@@ -29,12 +30,27 @@ namespace ProjectNIM
                 lblGameInfo.Content = $"{gLogic.ActivePlayer}'s turn!";
                 Pile temp = new Pile(pile);
                 temp.MouseLeftButtonDown += fillCbx;
+                temp.MouseLeftButtonDown += SelectColor;
                 ugrdGame.Children.Add(temp);
+                Piles.Add(temp);
             }
         }
 
+        private void SelectColor(object sender, MouseButtonEventArgs e)
+        {
+            Pile changeColor = (Pile)sender;
+            foreach (var pile in Piles)
+            {
+                pile.lblItems.BorderBrush = Brushes.Black;
+            }
+            changeColor.lblItems.BorderBrush = Brushes.Red;
+
+        }
+
+
         private void fillCbx(object sender, MouseButtonEventArgs e)
         {
+            cbxChoice.Items.Clear();
             Pile temp = (Pile)sender;
             string data = (string)temp.lblItems.Content;
             int count = data.Split(' ').Length;
@@ -42,11 +58,6 @@ namespace ProjectNIM
             {
                 cbxChoice.Items.Add(i + 1);
             }
-        }
-
-        private void cbxChoice_Selected(object sender, RoutedEventArgs e)
-        {
-            btnSubmit.IsEnabled = true;
         }
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
@@ -58,7 +69,7 @@ namespace ProjectNIM
             }
             for (int i = 0; i < piles.Count; i++)
             {
-                if(piles[i].IsChecked() == true)
+                if (piles[i].IsChecked() == true)
                 {
                     int.TryParse(cbxChoice.SelectedItem.ToString(), out int itemsToRemove);
                     logic.TakeFromPile(i, itemsToRemove);
@@ -74,6 +85,11 @@ namespace ProjectNIM
                 temp.MouseLeftButtonDown += fillCbx;
                 ugrdGame.Children.Add(temp);
             }
+        }
+
+        private void cbxChoice_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            btnSubmit.IsEnabled = true;
         }
     }
 }

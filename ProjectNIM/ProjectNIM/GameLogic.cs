@@ -18,7 +18,22 @@ namespace ProjectNIM
         {
             //Daniel
             Random rnd = new Random();
+
+            bool exit = false;
             int pileChoice = rnd.Next(0, Piles.Count + 1);
+            do
+            {
+                if (Piles[pileChoice] == 0)
+                {
+                    pileChoice = rnd.Next(0, Piles.Count + 1);
+
+                }
+                else
+                {
+                    exit = true;
+                }
+
+            } while (!exit);
             return pileChoice;
         }
 

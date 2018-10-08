@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,9 +22,11 @@ namespace ProjectNIM
     {
         private List<Pile> Piles = new List<Pile>();
         public GameLogic logic;
+        bool bot;
         public Game(GameLogic gLogic, bool hasBot)
         {
             this.logic = gLogic;
+            this.bot = hasBot;
             InitializeComponent();
             foreach (var pile in gLogic.Piles)
             {
@@ -75,15 +78,39 @@ namespace ProjectNIM
                     logic.TakeFromPile(i, itemsToRemove);
                 }
             }
+
             cbxChoice.Items.Clear();
             logic.SwitchActivePlayer();
             ugrdGame.Children.Clear();
+            lblGameInfo.Content = $"{logic.ActivePlayer}'s turn!";
             foreach (var pile in logic.Piles)
             {
-                lblGameInfo.Content = $"{logic.ActivePlayer}'s turn!";
                 Pile temp = new Pile(pile);
                 temp.MouseLeftButtonDown += fillCbx;
                 ugrdGame.Children.Add(temp);
+            }
+
+            if (bot && logic.ActivePlayer.Equals("Robot Overlord"))
+            {
+                lblGameInfo.Content = $"{logic.ActivePlayer}'s turn!";
+                //Thread.Sleep(1000);
+                int pile = logic.RobotPileChoice();
+                int numberToRemove = logic.RobotPieceChoice(pile);
+                MessageBox.Show($"Pile: {pile}\nNumber to remove: {numberToRemove}");
+                logic.TakeFromPile(pile, numberToRemove);
+
+                cbxChoice.Items.Clear();
+                logic.SwitchActivePlayer();
+                ugrdGame.Children.Clear();
+                lblGameInfo.Content = $"{logic.ActivePlayer}'s turn!";
+                foreach (var pile1 in logic.Piles)
+                {
+                    Pile temp = new Pile(pile1);
+                    temp.MouseLeftButtonDown += fillCbx;
+                    ugrdGame.Children.Add(temp);
+                }
+
+
             }
         }
 

@@ -20,8 +20,14 @@ namespace ProjectNIM
     /// </summary>
     public partial class Pile : UserControl
     {
-        public Pile()
+        public Pile(int items)
         {
+            string toFill = "";
+            for (int i = 0; i < items; i++)
+            {
+                toFill += "| ";
+            }
+            lblItems.Content = toFill;
             InitializeComponent();
         }
     }

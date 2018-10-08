@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -16,25 +16,30 @@ using System.Windows.Shapes;
 namespace ProjectNIM
 {
     /// <summary>
-    /// Interaction logic for NameWindow.xaml
+    /// Interaction logic for EndScreen.xaml
     /// </summary>
-    public partial class NameWindow : Window
+    public partial class EndScreen : Window
     {
-        private StartWindow startWindow;
-
-        public NameWindow(StartWindow startWindow)
+        public EndScreen()
         {
+
+            //imgScreen.Source.Equals();
             InitializeComponent();
-            this.startWindow = startWindow;
         }
 
-        private void btn_SeconContClicked(object sender, RoutedEventArgs e)
+        //private Image getImage(string path)
+        //{
+            
+        //}
+
+        private void btnNewGame_Click(object sender, RoutedEventArgs e)
         {
 
-            //Game stuff goes here
-            startWindow.Close();
-            Game open = new Game();
-            open.Show();
+        }
+
+        private void btnMainMenu_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

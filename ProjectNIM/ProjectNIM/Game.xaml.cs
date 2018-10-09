@@ -132,20 +132,27 @@ namespace ProjectNIM
 
         private void btnRestart_Click(object sender, RoutedEventArgs e)
         {
-            logic.InitializePiles(logic.Difficulty);
-            logic.ActivePlayer = logic.Players[0];
+            MessageBoxResult msgBoxResult = MessageBox.Show("Are you sure you want to restart the game"
+                , "Restarting Game!", MessageBoxButton.YesNo);
 
-            ugrdGame.Children.Clear();
-
-            foreach (var pile in logic.Piles)
+            if (msgBoxResult == MessageBoxResult.Yes)
             {
-                lblGameInfo.Content = $"{logic.ActivePlayer}'s turn!";
-                Pile temp = new Pile(pile);
-                temp.MouseLeftButtonDown += fillCbx;
-                temp.MouseLeftButtonDown += SelectColor;
-                ugrdGame.Children.Add(temp);
-                Piles.Add(temp);
+                logic.InitializePiles(logic.Difficulty);
+                logic.ActivePlayer = logic.Players[0];
+
+                ugrdGame.Children.Clear();
+
+                foreach (var pile in logic.Piles)
+                {
+                    lblGameInfo.Content = $"{logic.ActivePlayer}'s turn!";
+                    Pile temp = new Pile(pile);
+                    temp.MouseLeftButtonDown += fillCbx;
+                    temp.MouseLeftButtonDown += SelectColor;
+                    ugrdGame.Children.Add(temp);
+                    Piles.Add(temp);
+                }
             }
+            
         }
     }
 }

@@ -48,7 +48,9 @@ namespace ProjectNIM
             }
             changeColor.lblItems.BorderBrush = Brushes.Red;
             changeColor.rbtnChoice.IsChecked = true;
-            cbxChoice.IsEnabled = true;
+            Pile temp = (Pile)sender;
+            if ((string)temp.lblItems.Content != "")
+                cbxChoice.IsEnabled = true;
         }
 
 
@@ -67,6 +69,7 @@ namespace ProjectNIM
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
+            Piles.Clear();
             List<Pile> piles = new List<Pile>();
             for (int i = 0; i < ugrdGame.Children.Count; i++)
             {
@@ -91,7 +94,9 @@ namespace ProjectNIM
                 temp.MouseLeftButtonDown += fillCbx;
                 temp.MouseLeftButtonDown += SelectColor;
                 ugrdGame.Children.Add(temp);
+                Piles.Add(temp);
             }
+
 
             if (bot && logic.ActivePlayer.Equals("Robot Overlord") && !logic.IsGameOver())
             {

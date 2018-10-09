@@ -8,7 +8,9 @@
          Title="HelpWindow" Height="450" Width="800"
          WindowStartupLocation="CenterScreen">
     <Grid>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="26,28,0,0" VerticalAlignment="Top" Height="314" Width="741"/>
+        <Image HorizontalAlignment="Center" Source="/HelpImages/ClickBox.png" Margin="57,0,50.6,88"></Image>
+        <TextBlock TextWrapping="Wrap" Text="Nim is a game based on a simple primise.All you have to do is make your opponent take the final object."   HorizontalAlignment="Left"  VerticalAlignment="Top" Height="69" Width="336" RenderTransformOrigin="0.611,4.186" Margin="10,241,0,0" FontSize="14.3"/>
+        <TextBlock TextWrapping="Wrap" Text="In order to take objects in this game, just pick a pile by clicking on it. After that, you will select the drop down menu and choose your ammount.  You will then click submit and the turn will go over to your opponent."   HorizontalAlignment="Left"  VerticalAlignment="Top" Height="126" Width="336" RenderTransformOrigin="0.611,4.186" Margin="447,241,0,0" FontSize="14.3"/>
         <Button Content="Main Menu" HorizontalAlignment="Left" Margin="290,337,0,0" VerticalAlignment="Top" Width="177" Height="30" Click="btn_MainMenuClicked"/>
     </Grid>
 </Window>

@@ -48,6 +48,7 @@ namespace ProjectNIM
             }
             changeColor.lblItems.BorderBrush = Brushes.Red;
             changeColor.rbtnChoice.IsChecked = true;
+            cbxChoice.IsEnabled = true;
         }
 
 
@@ -121,6 +122,7 @@ namespace ProjectNIM
             }
 
             btnSubmit.IsEnabled = false;
+            cbxChoice.IsEnabled = false;
         }
 
         private void cbxChoice_SelectionChanged(object sender, SelectionChangedEventArgs e)

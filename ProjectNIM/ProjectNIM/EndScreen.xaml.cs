@@ -41,7 +41,7 @@ namespace ProjectNIM
                     paths.Add(directory);
                 }
             }
-            imgScreen.Source = new BitmapImage(new Uri/*on ice*/(paths[rand.Next(paths.Count)], UriKind.Relative));
+            imgScreen.Source = new BitmapImage(new Uri(paths[rand.Next(paths.Count)], UriKind.Relative));
         }
 
         private string getImage(string path)

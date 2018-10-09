@@ -129,5 +129,23 @@ namespace ProjectNIM
         {
             btnSubmit.IsEnabled = true;
         }
+
+        private void btnRestart_Click(object sender, RoutedEventArgs e)
+        {
+            logic.InitializePiles(logic.Difficulty);
+            logic.ActivePlayer = logic.Players[0];
+
+            ugrdGame.Children.Clear();
+
+            foreach (var pile in logic.Piles)
+            {
+                lblGameInfo.Content = $"{logic.ActivePlayer}'s turn!";
+                Pile temp = new Pile(pile);
+                temp.MouseLeftButtonDown += fillCbx;
+                temp.MouseLeftButtonDown += SelectColor;
+                ugrdGame.Children.Add(temp);
+                Piles.Add(temp);
+            }
+        }
     }
 }

@@ -14,6 +14,8 @@ namespace ProjectNIM
 
         public string ActivePlayer { get; set; }
 
+        public int Difficulty { get; set; }
+
         public int RobotPileChoice()
         {
             //Daniel
@@ -68,6 +70,7 @@ namespace ProjectNIM
 
         public void InitializePiles(int difficulty)
         {
+            Difficulty = difficulty;
             Piles = new List<int>();
             switch (difficulty)
             {

@@ -20,11 +20,28 @@ namespace ProjectNIM
     /// </summary>
     public partial class EndScreen : Window
     {
-        public EndScreen()
+        public EndScreen(GameLogic game)
         {
+            Random rand = new Random();
             //Image image = new Image();
             //imgScreen.Source.Equals();
             InitializeComponent();
+            List<String> paths = new List<string>();
+            if(game.ActivePlayer == game.Players[0])
+            {
+                foreach (var directory in Directory.GetFiles("../../WinScreen/"))
+                {
+                    paths.Add(directory);
+                }
+            }
+            else
+            {
+                foreach (var directory in Directory.GetFiles("../../GameOverScreen/"))
+                {
+                    paths.Add(directory);
+                }
+            }
+            imgScreen.Source = new BitmapImage(new Uri/*on ice*/(paths[rand.Next(paths.Count)], UriKind.Relative));
         }
 
         private string getImage(string path)

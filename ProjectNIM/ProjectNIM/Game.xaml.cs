@@ -92,7 +92,7 @@ namespace ProjectNIM
                 ugrdGame.Children.Add(temp);
             }
 
-            if (bot && logic.ActivePlayer.Equals("Robot Overlord"))
+            if (bot && logic.ActivePlayer.Equals("Robot Overlord") && !logic.IsGameOver())
             {
                 lblGameInfo.Content = $"{logic.ActivePlayer}'s turn!";
                 //Thread.Sleep(1000);
@@ -115,7 +115,7 @@ namespace ProjectNIM
             }
             if (logic.IsGameOver())
             {
-                EndScreen end = new EndScreen();
+                EndScreen end = new EndScreen(logic);
                 end.Show();
                 Close();
             }
